@@ -14,7 +14,8 @@ public class UserResource {
 	@GetMapping   // Responde requisição do tipo GET do HTTP //
 	public ResponseEntity<User> findAll() {
 		User u = new User(1L, "Maria", "maria@gmail.com", "992512006", "kaka22");
+		//ResponseEntity.ok() - para retornar uma resposta com SUCESSO; //
+		//ResponseEntity.ok().body() - Adiciona no corpo da mensagem o objeto que acabei de criar USER //
 		return ResponseEntity.ok().body(u);
 	}
-
 }

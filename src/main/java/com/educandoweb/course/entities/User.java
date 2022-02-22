@@ -2,16 +2,24 @@ package com.educandoweb.course.entities;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /** 
  *  Quando um objeto for transformado em uma cadeia de bytes, para que o objeto possa trafegar na rede, para que o objeto
  *  possa ser gravado em arquivos... Precisa da interface Serializable implementada.
  *
  */
+//Sempre bom importar do lugar: javax.persistence.Entity; Dando preferência para a especificação //
+//Sempre bom sua classe depender da especificação, não da implementação: org.hibernate..... //
+@Entity  
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Auto Incremento //
 	private Long id;
 	private String name;
     private String email;
@@ -23,6 +31,7 @@ public class User implements Serializable {
     	
     }
 
+    // Todos os Atributos //
 	public User(Long id, String name, String email, String phone, String password) {
 		super();
 		this.id = id;
